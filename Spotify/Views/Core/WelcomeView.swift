@@ -58,7 +58,9 @@ struct WelcomeView: View {
     }
     
     private var buttonView: some View {
-        NavigationLink(destination: WebUIView(url: authManager.signInURL!)){
+        NavigationLink(destination: WebUIView(url: authManager.signInURL!)
+            .navigationTitle("SignIn"))
+        {
             Text("SignIn with Spotify")
                 .font(.body)
                 .frame(width: screenWidth - 80, alignment: .center)
@@ -66,7 +68,9 @@ struct WelcomeView: View {
                 .background(Color.white)
                 .foregroundColor(Color.black)
                 .cornerRadius(25)
-        }.navigationBarTitleDisplayMode(.inline)
+        }
+        .navigationBarHidden(true)
+        .navigationBarTitleDisplayMode(.inline)
     }
     
 }
