@@ -14,19 +14,11 @@ struct ContentView: View {
     
     var body: some View {
         if authManager.isSignedIn {
-            VStack {
-                Text("Hello world")
-                Button("Logout") {
-                    authManager.signOut { Bool in
-                        print("signout success \(Bool)")
-                    }
-                }
-            }
+            TabBarView()
         }
-        
         if !authManager.isSignedIn {
             //Show Login Page
-            WebUIView(url: authManager.signInURL!)
+            WelcomeView()
         }
     }
 }
