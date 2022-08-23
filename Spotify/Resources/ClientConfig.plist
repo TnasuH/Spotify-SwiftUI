@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   ClientConfig.plist
+   Spotify
+
+   Created by Tarik Nasuhoglu on 23.08.2022.
+   Copyright (c) 2022 ___ORGANIZATIONNAME___. All rights reserved.
+-->
+<plist version="1.0">
+    <dict>
+        <key>ClientID</key>
+        <string>56c8955b963e43b69ee08ed36553cb4e</string>
+        <key>ClientSecret</key>
+        <string>25f4f6dacc024aa796c862fedd9e64df</string>
+    </dict>
+</plist>
