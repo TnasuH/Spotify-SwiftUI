@@ -24,5 +24,5 @@ struct Category: Decodable {
 struct CategoryItem: Decodable {
     let id: String
     let name: String
-    let icons: [Image]
+    let icons: [ImageModel]
 }

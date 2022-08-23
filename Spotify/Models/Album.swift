@@ -22,7 +22,7 @@ public struct Album: Codable {
     public let externalUrls: ExternalUrls
     public let href: String
     public let id: String
-    public let images: [Image]
+    public let images: [ImageModel]
     public let name: String
     public let releaseDate: String
     public let releaseDatePrecision: String
@@ -46,7 +46,7 @@ public struct Album: Codable {
         case uri = "uri"
     }
 
-    public init(albumType: String, artists: [Artist], availableMarkets: [String], externalUrls: ExternalUrls, href: String, id: String, images: [Image], name: String, releaseDate: String, releaseDatePrecision: String, totalTracks: Int, type: AlbumTypeEnum?, uri: String) {
+    public init(albumType: String, artists: [Artist], availableMarkets: [String], externalUrls: ExternalUrls, href: String, id: String, images: [ImageModel], name: String, releaseDate: String, releaseDatePrecision: String, totalTracks: Int, type: AlbumTypeEnum?, uri: String) {
         self.albumType = albumType
         self.artists = artists
         self.availableMarkets = availableMarkets

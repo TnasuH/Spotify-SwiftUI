@@ -17,7 +17,7 @@ public class Episode: Codable {
     public let externalUrls: ExternalUrls
     public let href: String
     public let id: String
-    public let images: [Image]
+    public let images: [ImageModel]
     public let isExternallyHosted: Bool
     public let isPlayable: Bool
     public let language: String
@@ -55,7 +55,7 @@ public class Episode: Codable {
         case show = "show"
     }
 
-    public init(audioPreviewURL: String, episodeDescription: String, htmlDescription: String, durationMS: Int, explicit: Bool, externalUrls: ExternalUrls, href: String, id: String, images: [Image], isExternallyHosted: Bool, isPlayable: Bool, language: String, languages: [String], name: String, releaseDate: String, releaseDatePrecision: String, resumePoint: ResumePoint, type: String, uri: String, restrictions: Restrictions, show: Show) {
+    public init(audioPreviewURL: String, episodeDescription: String, htmlDescription: String, durationMS: Int, explicit: Bool, externalUrls: ExternalUrls, href: String, id: String, images: [ImageModel], isExternallyHosted: Bool, isPlayable: Bool, language: String, languages: [String], name: String, releaseDate: String, releaseDatePrecision: String, resumePoint: ResumePoint, type: String, uri: String, restrictions: Restrictions, show: Show) {
         self.audioPreviewURL = audioPreviewURL
         self.episodeDescription = episodeDescription
         self.htmlDescription = htmlDescription
@@ -108,7 +108,7 @@ public class Show: Codable {
     public let externalUrls: ExternalUrls
     public let href: String
     public let id: String
-    public let images: [Image]
+    public let images: [ImageModel]
     public let isExternallyHosted: Bool
     public let languages: [String]
     public let mediaType: String
@@ -136,7 +136,7 @@ public class Show: Codable {
         case uri = "uri"
     }
 
-    public init(availableMarkets: [String], copyrights: [Copyright], showDescription: String, htmlDescription: String, explicit: Bool, externalUrls: ExternalUrls, href: String, id: String, images: [Image], isExternallyHosted: Bool, languages: [String], mediaType: String, name: String, publisher: String, type: String, uri: String) {
+    public init(availableMarkets: [String], copyrights: [Copyright], showDescription: String, htmlDescription: String, explicit: Bool, externalUrls: ExternalUrls, href: String, id: String, images: [ImageModel], isExternallyHosted: Bool, languages: [String], mediaType: String, name: String, publisher: String, type: String, uri: String) {
         self.availableMarkets = availableMarkets
         self.copyrights = copyrights
         self.showDescription = showDescription

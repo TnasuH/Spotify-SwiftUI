@@ -24,7 +24,7 @@ public struct GetCurrentProfile: Codable {
     public let followers: Followers
     public let href: String
     public let id: String
-    public let images: [Image]
+    public let images: [ImageModel]
     public let product: String
     public let type: OwnerType
     public let uri: String
@@ -44,7 +44,7 @@ public struct GetCurrentProfile: Codable {
         case uri = "uri"
     }
 
-    public init(country: String, displayName: String, email: String, explicitContent: ExplicitContent, externalUrls: ExternalUrls, followers: Followers, href: String, id: String, images: [Image], product: String, type: OwnerType, uri: String) {
+    public init(country: String, displayName: String, email: String, explicitContent: ExplicitContent, externalUrls: ExternalUrls, followers: Followers, href: String, id: String, images: [ImageModel], product: String, type: OwnerType, uri: String) {
         self.country = country
         self.displayName = displayName
         self.email = email

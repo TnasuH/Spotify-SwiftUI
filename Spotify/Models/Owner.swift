@@ -23,7 +23,7 @@ public struct Owner: Codable {
     public let type: OwnerType
     public let uri: String
     public let name: String?
-    public let images: [Image]?
+    public let images: [ImageModel]?
 
     enum CodingKeys: String, CodingKey {
         case displayName = "display_name"
@@ -36,7 +36,7 @@ public struct Owner: Codable {
         case images = "images"
     }
 
-    public init(displayName: String?, externalUrls: ExternalUrls, href: String, id: String, type: OwnerType, uri: String, name: String?, images: [Image]?) {
+    public init(displayName: String?, externalUrls: ExternalUrls, href: String, id: String, type: OwnerType, uri: String, name: String?, images: [ImageModel]?) {
         self.displayName = displayName
         self.externalUrls = externalUrls
         self.href = href

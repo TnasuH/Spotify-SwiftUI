@@ -21,7 +21,7 @@ public struct PlaylistsItem: Codable {
     public let externalUrls: ExternalUrls
     public let href: String?
     public let id: String
-    public let images: [Image]
+    public let images: [ImageModel]
     public let name: String
     public let owner: Owner
     public let primaryColor: String?
@@ -48,7 +48,7 @@ public struct PlaylistsItem: Codable {
         case uri = "uri"
     }
 
-    public init(collaborative: Bool, itemDescription: String, externalUrls: ExternalUrls, href: String, id: String, images: [Image], name: String, owner: Owner, primaryColor: String?, itemPublic: Bool?, snapshotid: String, tracks: Followers, type: GetPlaylistsType, uri: String) {
+    public init(collaborative: Bool, itemDescription: String, externalUrls: ExternalUrls, href: String, id: String, images: [ImageModel], name: String, owner: Owner, primaryColor: String?, itemPublic: Bool?, snapshotid: String, tracks: Followers, type: GetPlaylistsType, uri: String) {
         self.collaborative = collaborative
         self.itemDescription = itemDescription
         self.externalUrls = externalUrls

@@ -21,7 +21,7 @@ public struct GetArtist: Codable {
     public let genres: [String]
     public let href: String
     public let id: String
-    public let images: [Image]
+    public let images: [ImageModel]
     public let name: String
     public let popularity: Int
     public let type: OwnerType
@@ -40,7 +40,7 @@ public struct GetArtist: Codable {
         case uri = "uri"
     }
 
-    public init(externalUrls: ExternalUrls, followers: Followers, genres: [String], href: String, id: String, images: [Image], name: String, popularity: Int, type: OwnerType, uri: String) {
+    public init(externalUrls: ExternalUrls, followers: Followers, genres: [String], href: String, id: String, images: [ImageModel], name: String, popularity: Int, type: OwnerType, uri: String) {
         self.externalUrls = externalUrls
         self.followers = followers
         self.genres = genres

@@ -12,7 +12,7 @@ public class Artist: Codable {
     public let genres: [String]?
     public let href: String
     public let id: String
-    public let images: [Image]?
+    public let images: [ImageModel]?
     public let name: String
     public let popularity: Int?
     public let type: String
@@ -31,7 +31,7 @@ public class Artist: Codable {
         case uri = "uri"
     }
 
-    public init(externalUrls: ExternalUrls, followers: Followers, genres: [String], href: String, id: String, images: [Image], name: String, popularity: Int, type: String, uri: String) {
+    public init(externalUrls: ExternalUrls, followers: Followers, genres: [String], href: String, id: String, images: [ImageModel], name: String, popularity: Int, type: String, uri: String) {
         self.externalUrls = externalUrls
         self.followers = followers
         self.genres = genres
