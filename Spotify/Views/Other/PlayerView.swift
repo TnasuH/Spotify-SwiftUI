@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PlayerView: View {
     
-    @State var playerIsMini: Bool = true
+    @State var playerIsFullScreen: Bool = false
     
     var playerBackgroundColors = Set<Color>()
     
@@ -29,12 +29,11 @@ struct PlayerView: View {
         playerBackgroundColors.insert(Color.red)
         playerBackgroundColors.insert(Color.teal)
         playerBackgroundColors.insert(Color.yellow)
-        
     }
     
     var body: some View {
         showMiniPlayer()
-            .sheet(isPresented: $playerIsMini) {
+            .sheet(isPresented: $playerIsFullScreen) {
                 showLargePlayer()
             }
     }
@@ -80,7 +79,7 @@ struct PlayerView: View {
                     // TODO: player play pause flows
                     print("play button toggle runned")
                 }) {
-                    Image(systemName: playerIsMini ? "play.fill" : "pause.fill")
+                    Image(systemName: playerIsFullScreen ? "play.fill" : "pause.fill") // TODO: play button icon will be change for the play status
                         .font(.title)
                         .foregroundColor(.white)
                 }
@@ -91,7 +90,7 @@ struct PlayerView: View {
         .padding(.horizontal,5)
         .frame(height: 80, alignment: .center)
         .onTapGesture {
-            playerIsMini.toggle()
+            playerIsFullScreen.toggle()
         }
         .padding(.bottom,50)
     }
