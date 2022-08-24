@@ -35,11 +35,15 @@ struct ProfileView: View {
                 }
                 .aspectRatio(contentMode: .fit)
                 .clipShape(Circle())
-                .frame(height: 200, alignment: .center)
+                .frame(height: 120, alignment: .center)
                 
                 Text(vm.currentUser?.displayName ?? "")
                     .foregroundColor(.white)
                     .font(.title2)
+                    .bold()
+                Text(vm.currentUser?.email ?? "")
+                    .foregroundColor(.white)
+                    .font(.subheadline)
                     .bold()
                 HStack(alignment: .center){
                     userInfoWithCount(count: 20, desc: "PlayLists")
@@ -50,13 +54,17 @@ struct ProfileView: View {
                 }
                 .padding(.horizontal,20)
                 .padding(.top,5)
-                List {
-                    userInfoRow(label: "Email", val: vm.currentUser?.email ?? "")
-                    userInfoRow(label: "Subscription Type", val: vm.currentUser?.product ?? "")
-                    //vm.currentUser?.type?.rawValue ?? "")
-                    userInfoRow(label: "Country", val: vm.currentUser?.country ?? "")
-                    //                    Text(vm.currentUser.)
-                }.disabled(true)
+                HStack(alignment: .center, spacing: 10){
+                    Text(vm.currentUser?.product?.uppercased() ?? "")
+                        .foregroundColor(.white)
+                        .font(.subheadline)
+                        .bold()
+                    Text(" - ")
+                    Text(vm.currentUser?.country ?? "")
+                        .foregroundColor(.white)
+                        .font(.subheadline)
+                        .bold()
+                }.padding()
                 
                 Button(action: {
                     AuthManager.shared.signOut { result in print("logout Clicked")
@@ -70,7 +78,7 @@ struct ProfileView: View {
                         .foregroundColor(Color.black)
                         .cornerRadius(25)
                 }
-                .padding(.bottom,60)
+                .padding(.bottom,120)
             }
         }
     }
