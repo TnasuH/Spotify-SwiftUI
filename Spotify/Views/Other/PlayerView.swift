@@ -12,29 +12,10 @@ struct PlayerView: View {
     @State var playerIsFullScreen: Bool = false
     @State var playing: Bool = true
     @State var playerSeekTime: Double = 60
-    var playerBgColors = Set<Color>()
-    
-    init() {
-        playerBgColors.insert(Color.accentColor)
-        playerBgColors.insert(Color.green)
-        playerBgColors.insert(Color.black)
-        playerBgColors.insert(Color.gray)
-        playerBgColors.insert(Color.purple)
-        playerBgColors.insert(Color.blue)
-        playerBgColors.insert(Color.brown)
-        playerBgColors.insert(Color.cyan)
-        playerBgColors.insert(Color.indigo)
-        playerBgColors.insert(Color.mint)
-        playerBgColors.insert(Color.orange)
-        playerBgColors.insert(Color.pink)
-        playerBgColors.insert(Color.red)
-        playerBgColors.insert(Color.teal)
-        playerBgColors.insert(Color.yellow)
-    }
     
     var body: some View {
         showMiniPlayer()
-            .sheet(isPresented: $playerIsFullScreen) {
+            .fullScreenCover(isPresented: $playerIsFullScreen) {
                 showLargePlayer()
             }
     }
@@ -117,7 +98,7 @@ struct PlayerView: View {
         let trackImageUrlString = "" //track.album?.images.first?.url ?? ""
         
         return ZStack{
-            changeBackground()
+            Helper.getRandomColor()
                 .cornerRadius(5)
             Color.black.opacity(0.8)
                 .cornerRadius(5)
@@ -168,9 +149,6 @@ struct PlayerView: View {
         .padding(.bottom,50)
     }
     
-    private func changeBackground() -> Color {
-        return playerBgColors.randomElement() ?? Color.green
-    }
 }
 
 struct PlayerView_Previews: PreviewProvider {

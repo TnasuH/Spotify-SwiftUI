@@ -21,15 +21,16 @@ class ProfileViewModel: ObservableObject {
     private func fetchData() {
         
         // New Release
-        apiCaller.getCurrentUserProfile { result in
-            switch result {
-            case .success(let model):
-                self.currentUser = model
-            case .failure(let error):
-                print("Err!1: \(error)")
+        apiCaller.getCurrentUserProfile {[weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let model):
+                    self?.currentUser = model
+                case .failure(let error):
+                    print("Err!1: \(error)")
+                }
             }
+           
         }
-        
-        
     }
 }

@@ -14,7 +14,7 @@ struct TabBarView: View {
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
-            TempView(text:"Search Screen")
+            SearchView()
                 .tabItem {
                     Label("Search", systemImage: "magnifyingglass")
                 }

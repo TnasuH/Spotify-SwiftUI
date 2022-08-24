@@ -13,10 +13,3 @@ struct GetSearch: Codable {
     let albums: Albums
     let playlists: Playlists
 }
-
-enum SearchResult {
-    case track(model: Track)
-    case artist(model: Artist)
-    case album(model: Album)
-    case playlist(model: PlaylistsItem)
-}

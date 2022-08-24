@@ -78,6 +78,12 @@
 		2ECA76F328B59E40002A03C8 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA76F228B59E40002A03C8 /* ProfileView.swift */; };
 		2ECA76F528B59F59002A03C8 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA76F428B59F59002A03C8 /* ProfileViewModel.swift */; };
 		2ECA76F728B5AD82002A03C8 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA76F628B5AD82002A03C8 /* PlayerView.swift */; };
+		2ECA76F928B5D357002A03C8 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA76F828B5D357002A03C8 /* SearchViewModel.swift */; };
+		2ECA76FB28B5D48F002A03C8 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA76FA28B5D48F002A03C8 /* SearchView.swift */; };
+		2ECA76FD28B5FA45002A03C8 /* FetchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA76FC28B5FA45002A03C8 /* FetchState.swift */; };
+		2ECA76FF28B5FD3A002A03C8 /* SearchPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA76FE28B5FD3A002A03C8 /* SearchPlaceholderView.swift */; };
+		2ECA770128B6195A002A03C8 /* ListPlaceholderRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA770028B6195A002A03C8 /* ListPlaceholderRowView.swift */; };
+		2ECA770328B63EE0002A03C8 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA770228B63EE0002A03C8 /* SearchResultView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -153,6 +159,12 @@
 		2ECA76F228B59E40002A03C8 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		2ECA76F428B59F59002A03C8 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		2ECA76F628B5AD82002A03C8 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		2ECA76F828B5D357002A03C8 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		2ECA76FA28B5D48F002A03C8 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		2ECA76FC28B5FA45002A03C8 /* FetchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchState.swift; sourceTree = "<group>"; };
+		2ECA76FE28B5FD3A002A03C8 /* SearchPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceholderView.swift; sourceTree = "<group>"; };
+		2ECA770028B6195A002A03C8 /* ListPlaceholderRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPlaceholderRowView.swift; sourceTree = "<group>"; };
+		2ECA770228B63EE0002A03C8 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +278,7 @@
 				2ECA767728B4BF1A002A03C8 /* TrackType.swift */,
 				2ECA768E28B4BF1A002A03C8 /* User.swift */,
 				2ECA767528B4BF1A002A03C8 /* VideoThumbnail.swift */,
+				2ECA76FC28B5FA45002A03C8 /* FetchState.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -313,6 +326,7 @@
 			children = (
 				2ECA76E928B585B6002A03C8 /* AlbumViewModel.swift */,
 				2ECA76F428B59F59002A03C8 /* ProfileViewModel.swift */,
+				2ECA76F828B5D357002A03C8 /* SearchViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -326,6 +340,9 @@
 				2ECA76E728B57BEB002A03C8 /* RecommendedView.swift */,
 				2ECA76CE28B4CEFB002A03C8 /* WebUIView.swift */,
 				2ECA76F628B5AD82002A03C8 /* PlayerView.swift */,
+				2ECA76FE28B5FD3A002A03C8 /* SearchPlaceholderView.swift */,
+				2ECA770028B6195A002A03C8 /* ListPlaceholderRowView.swift */,
+				2ECA770228B63EE0002A03C8 /* SearchResultView.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -336,6 +353,7 @@
 				2ECA76DF28B56ABB002A03C8 /* HomeView.swift */,
 				2ECA76DD28B55D9E002A03C8 /* WelcomeView.swift */,
 				2ECA76D928B55B98002A03C8 /* TabBarView.swift */,
+				2ECA76FA28B5D48F002A03C8 /* SearchView.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -421,6 +439,7 @@
 				2ECA76F528B59F59002A03C8 /* ProfileViewModel.swift in Sources */,
 				2ECA76AF28B4BF1A002A03C8 /* Artist.swift in Sources */,
 				2ECA76BE28B4BF1A002A03C8 /* DisplayName.swift in Sources */,
+				2ECA76FB28B5D48F002A03C8 /* SearchView.swift in Sources */,
 				2ECA76E028B56ABB002A03C8 /* HomeView.swift in Sources */,
 				2ECA769F28B4BF1A002A03C8 /* OwnerType.swift in Sources */,
 				2ECA76B728B4BF1A002A03C8 /* LibraryAlbumsResponse.swift in Sources */,
@@ -439,6 +458,7 @@
 				2ECA76A028B4BF1A002A03C8 /* TrackExternalids.swift in Sources */,
 				2ECA76B428B4BF1A002A03C8 /* GetAlbums.swift in Sources */,
 				2ECA76B928B4BF1A002A03C8 /* Externalids.swift in Sources */,
+				2ECA76FD28B5FA45002A03C8 /* FetchState.swift in Sources */,
 				2ECA76C728B4BF1A002A03C8 /* GetPlaylists.swift in Sources */,
 				2ECA76C328B4BF1A002A03C8 /* Episode.swift in Sources */,
 				2ECA76C828B4BF1A002A03C8 /* GetCategoryPlaylists.swift in Sources */,
@@ -451,11 +471,14 @@
 				2ECA76B328B4BF1A002A03C8 /* AlbumTypeEnum.swift in Sources */,
 				2ECA76C528B4BF1A002A03C8 /* PurpleType.swift in Sources */,
 				2ECA769E28B4BF1A002A03C8 /* ArtistType.swift in Sources */,
+				2ECA76FF28B5FD3A002A03C8 /* SearchPlaceholderView.swift in Sources */,
+				2ECA770328B63EE0002A03C8 /* SearchResultView.swift in Sources */,
 				2ECA76DC28B55C43002A03C8 /* TempView.swift in Sources */,
 				2ECA76B528B4BF1A002A03C8 /* AuthResponse.swift in Sources */,
 				2ECA76AD28B4BF1A002A03C8 /* Recommendations.swift in Sources */,
 				2ECA76E228B56E7E002A03C8 /* NewReleasedAlbumView.swift in Sources */,
 				2ECA76BC28B4BF1A002A03C8 /* NewReleases.swift in Sources */,
+				2ECA770128B6195A002A03C8 /* ListPlaceholderRowView.swift in Sources */,
 				2ECA76CF28B4CEFB002A03C8 /* WebUIView.swift in Sources */,
 				2ECA76EA28B585B6002A03C8 /* AlbumViewModel.swift in Sources */,
 				2ECA76A228B4BF1A002A03C8 /* GetArtist.swift in Sources */,
@@ -471,6 +494,7 @@
 				2ECA769D28B4BF1A002A03C8 /* GetSearch.swift in Sources */,
 				2ECA76B228B4BF1A002A03C8 /* PurpleItem.swift in Sources */,
 				2ECA76AA28B4BF1A002A03C8 /* GetPlaylistsTracks.swift in Sources */,
+				2ECA76F928B5D357002A03C8 /* SearchViewModel.swift in Sources */,
 				2ECA76A528B4BF1A002A03C8 /* Track.swift in Sources */,
 				2ECA76A328B4BF1A002A03C8 /* RecommendedGenresResponse.swift in Sources */,
 				2ECA765528B4BCE8002A03C8 /* SpotifyApp.swift in Sources */,
