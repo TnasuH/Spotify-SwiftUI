@@ -8,5 +8,4 @@ Development is not yet complete.
 Spotify-SwuiftUI Privew is: (please wait for loading)
 
 
-![alt text](https://github.com/TnasuH/Spotify-SwiftUI/blob/master/githubResources/developmentContinueProjectScreen.gif?raw=true)
-
+![alt text](https://github.com/TnasuH/Spotify-SwiftUI/blob/main/githubResources/developmentContinueProjectScreen.gif?raw=true)
