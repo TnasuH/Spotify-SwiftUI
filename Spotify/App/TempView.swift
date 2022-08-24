@@ -23,7 +23,6 @@ struct TempView: View {
                 }
             }
         }
-        
         if !authManager.isSignedIn {
             //Show Login Page
             WebUIView(url: authManager.signInURL!)
