@@ -14,7 +14,10 @@ struct ContentView: View {
     
     var body: some View {
         if authManager.isSignedIn {
-            TabBarView()
+            ZStack(alignment: .bottom){
+                TabBarView()
+                PlayerView()
+            }
         }
         if !authManager.isSignedIn {
             //Show Login Page
