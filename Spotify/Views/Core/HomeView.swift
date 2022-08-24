@@ -14,6 +14,13 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             bodyView
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        NavigationLink(destination: ProfileView()){
+                            Image(systemName: "gear")
+                        }
+                    }
+                }
                 .navigationBarTitleDisplayMode(.large)
                 .navigationBarHidden(false)
                 .navigationTitle("Home")

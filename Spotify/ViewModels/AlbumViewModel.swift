@@ -31,7 +31,7 @@ class AlbumViewModel: ObservableObject {
         var recommendations: Recommendations?
         
         // New Release
-        APICaller.shared.getNewReleases { result in
+        apiCaller.getNewReleases { result in
             defer {
                 group.leave()
             }
@@ -44,7 +44,7 @@ class AlbumViewModel: ObservableObject {
         }
         
         // Featured playlist
-        APICaller.shared.getAllFeaturedPlaylists { result in
+        apiCaller.getAllFeaturedPlaylists { result in
             defer {
                 group.leave()
             }
@@ -58,7 +58,7 @@ class AlbumViewModel: ObservableObject {
             }
         }
         // Recommended tracks
-        APICaller.shared.getGenres { result in
+        apiCaller.getGenres { result in
             switch result {
             case .success(let model):
                 let genres = model.genres
@@ -70,7 +70,7 @@ class AlbumViewModel: ObservableObject {
                         }
                     }
                 }
-                APICaller.shared.getRecommendations(genres: seeds) { resultOfRecommended in
+                self.apiCaller.getRecommendations(genres: seeds) { resultOfRecommended in
                     defer {
                         group.leave()
                     }

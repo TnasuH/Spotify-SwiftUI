@@ -29,7 +29,7 @@ public struct User: Codable {
         case message
         case playlists
         case country
-        case displayName
+        case displayName = "display_name"
         case email
         case explicitContent
         case externalUrls

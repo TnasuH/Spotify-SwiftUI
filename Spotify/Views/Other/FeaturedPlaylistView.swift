@@ -69,5 +69,6 @@ struct FeaturedPlaylistView: View {
 struct FeaturedPlaylistView_Previews: PreviewProvider {
     static var previews: some View {
         FeaturedPlaylistView(featuredPlaylist: .constant([]))
+            .previewLayout(.sizeThatFits)
     }
 }

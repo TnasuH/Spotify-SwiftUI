@@ -75,6 +75,8 @@
 		2ECA76E828B57BEB002A03C8 /* RecommendedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA76E728B57BEB002A03C8 /* RecommendedView.swift */; };
 		2ECA76EA28B585B6002A03C8 /* AlbumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA76E928B585B6002A03C8 /* AlbumViewModel.swift */; };
 		2ECA76EC28B587D4002A03C8 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA76EB28B587D4002A03C8 /* HapticsManager.swift */; };
+		2ECA76F328B59E40002A03C8 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA76F228B59E40002A03C8 /* ProfileView.swift */; };
+		2ECA76F528B59F59002A03C8 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA76F428B59F59002A03C8 /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -147,6 +149,8 @@
 		2ECA76E728B57BEB002A03C8 /* RecommendedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedView.swift; sourceTree = "<group>"; };
 		2ECA76E928B585B6002A03C8 /* AlbumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewModel.swift; sourceTree = "<group>"; };
 		2ECA76EB28B587D4002A03C8 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
+		2ECA76F228B59E40002A03C8 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		2ECA76F428B59F59002A03C8 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,7 +190,6 @@
 				2ECA76D328B554E6002A03C8 /* Resources */,
 				2ECA76D428B55AAC002A03C8 /* Views */,
 				2ECA76D628B55B2F002A03C8 /* ViewModels */,
-				2ECA76CE28B4CEFB002A03C8 /* WebUIView.swift */,
 			);
 			path = Spotify;
 			sourceTree = "<group>";
@@ -286,8 +289,8 @@
 		2ECA76D428B55AAC002A03C8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2ECA76F028B59B09002A03C8 /* Core */,
 				2ECA76D828B55B69002A03C8 /* Other */,
-				2ECA76D728B55B61002A03C8 /* Core */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -307,28 +310,31 @@
 			isa = PBXGroup;
 			children = (
 				2ECA76E928B585B6002A03C8 /* AlbumViewModel.swift */,
+				2ECA76F428B59F59002A03C8 /* ProfileViewModel.swift */,
 			);
 			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		2ECA76D728B55B61002A03C8 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				2ECA76DD28B55D9E002A03C8 /* WelcomeView.swift */,
-				2ECA76D928B55B98002A03C8 /* TabBarView.swift */,
-				2ECA76DF28B56ABB002A03C8 /* HomeView.swift */,
-			);
-			path = Core;
 			sourceTree = "<group>";
 		};
 		2ECA76D828B55B69002A03C8 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				2ECA76F228B59E40002A03C8 /* ProfileView.swift */,
 				2ECA76E128B56E7E002A03C8 /* NewReleasedAlbumView.swift */,
 				2ECA76E528B577E8002A03C8 /* FeaturedPlaylistView.swift */,
 				2ECA76E728B57BEB002A03C8 /* RecommendedView.swift */,
+				2ECA76CE28B4CEFB002A03C8 /* WebUIView.swift */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		2ECA76F028B59B09002A03C8 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				2ECA76DF28B56ABB002A03C8 /* HomeView.swift */,
+				2ECA76DD28B55D9E002A03C8 /* WelcomeView.swift */,
+				2ECA76D928B55B98002A03C8 /* TabBarView.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,6 +414,8 @@
 				2ECA76DA28B55B98002A03C8 /* TabBarView.swift in Sources */,
 				2ECA76B828B4BF1A002A03C8 /* Restrictions.swift in Sources */,
 				2ECA769B28B4BF1A002A03C8 /* ExplicitContent.swift in Sources */,
+				2ECA76F328B59E40002A03C8 /* ProfileView.swift in Sources */,
+				2ECA76F528B59F59002A03C8 /* ProfileViewModel.swift in Sources */,
 				2ECA76AF28B4BF1A002A03C8 /* Artist.swift in Sources */,
 				2ECA76BE28B4BF1A002A03C8 /* DisplayName.swift in Sources */,
 				2ECA76E028B56ABB002A03C8 /* HomeView.swift in Sources */,
