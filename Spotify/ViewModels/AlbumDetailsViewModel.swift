@@ -20,22 +20,12 @@ class AlbumDetailViewModel: ObservableObject {
     }
     
     public func fetchData() {
-        // albumDetail
-        
-//        apiCaller.getPlaylists(for: "37i9dQZF1DXaE9T4Nls8eC") { result in
-//
-//        }
-//
-        print("album fetch basladi \(self.albumId)")
         apiCaller.getAlbumDetail(for: self.albumId) {[weak self] result in
             switch result {
             case .success(let model):
                 DispatchQueue.main.async {
                     self?.album = model
-                    
-                    self?.durationms = (model.tracks.items.compactMap{ return $0.durationms
-                    }).reduce(0, +)
-                    
+                    self?.durationms = (model.tracks.items.compactMap{ return $0.durationms }).reduce(0, +)
                 }
             case .failure(let error):
                 print("Err!1: \(error)")

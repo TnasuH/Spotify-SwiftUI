@@ -179,7 +179,7 @@ final class AuthManager: ObservableObject {
             return
         }
         req.setValue("Basic \(base64String)", forHTTPHeaderField: "Authorization")
-        print("base64String")
+//        print("base64String")
         req.httpBody = components.query?.data(using: .utf8)
         
         let task = URLSession.shared.dataTask(with: req) {[weak self] data, urlResponse, error in

@@ -50,10 +50,6 @@ final class APICaller {
                 }
                 
                 do {
-                    //HOUSTON
-                    //let jsonData = try JSONSerialization.jsonObject(with: data)
-                    //print(jsonData)
-                    
                     let result = try JSONDecoder().decode(GetAlbums.self, from: data)
                     completion(.success(result))
                 } catch {
@@ -280,10 +276,11 @@ final class APICaller {
                     return
                 }
                 do {
-                    let jsonData = try JSONSerialization.jsonObject(with: data)
-                    if let JSONString = String(data: data, encoding: String.Encoding.utf8) {
-                       print(JSONString)
-                    }
+//                    HELP FOR HOUSTON
+//                    let jsonData = try JSONSerialization.jsonObject(with: data)
+//                    if let JSONString = String(data: data, encoding: String.Encoding.utf8) {
+//                       print(JSONString)
+//                    }
                     let result = try JSONDecoder().decode(FeaturedPlaylists.self, from: data)
                     completion(.success(result))
                 }
@@ -325,9 +322,6 @@ final class APICaller {
                     return
                 }
                 do {
-                    let jsonData = try JSONSerialization.jsonObject(with: data)
-                    print(jsonData)
-                    
                     let result = try JSONDecoder().decode(Recommendations.self, from: data)
                     completion(.success(result))
                 }
