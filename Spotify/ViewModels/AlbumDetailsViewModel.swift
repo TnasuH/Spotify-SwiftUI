@@ -31,7 +31,6 @@ class AlbumDetailViewModel: ObservableObject {
             switch result {
             case .success(let model):
                 DispatchQueue.main.async {
-                    print(model)
                     self?.album = model
                     
                     self?.durationms = (model.tracks.items.compactMap{ return $0.durationms

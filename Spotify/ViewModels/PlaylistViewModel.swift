@@ -54,10 +54,7 @@ class PlaylistViewModel: ObservableObject {
                 switch result {
                 case .success(let model):
                     DispatchQueue.main.async {
-                        //print(model)
                         self?.detail = model
-                        print("asdasd")
-                        print(model.tracks.items.count)
                         self?.durationms = (model.tracks.items.compactMap{ return $0.track.durationms
                         }).reduce(0, +)
                         self?.playlistState = .loadedAll

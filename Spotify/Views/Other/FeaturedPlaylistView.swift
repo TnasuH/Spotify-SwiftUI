@@ -49,9 +49,7 @@ struct FeaturedPlaylistView: View {
     }
     
     private func featuredPlaylistCell(plistItem: PlaylistsItem) -> some View {
-        print("start")
-        print(plistItem)
-        print("end")
+        
         let playlistImageUrlString = plistItem.images.first?.url ?? ""
         return ZStack{
             VStack(alignment: .center, spacing: 0) {
