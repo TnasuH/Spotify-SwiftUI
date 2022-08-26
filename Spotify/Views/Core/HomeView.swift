@@ -23,7 +23,7 @@ struct HomeView: View {
                 }
                 .navigationBarTitleDisplayMode(.large)
                 .navigationBarHidden(false)
-                .navigationTitle("Home")
+                .navigationTitle("Spotify")
         }
     }
     

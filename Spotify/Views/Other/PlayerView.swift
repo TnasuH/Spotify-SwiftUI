@@ -11,15 +11,13 @@ struct PlayerView: View {
     
     @EnvironmentObject var pm: PlayerManagerViewModel
     
-//    @State var playerIsFullScreen: Bool = false
-//    @State var playing: Bool = true
-    @State var playerSeekTime: Double = 60
-    
     var body: some View {
-        showMiniPlayer()
-            .fullScreenCover(isPresented: $pm.showLargePlayer) {
-                showLargePlayer()
-            }
+        if let _ = pm.currentTrack {
+            showMiniPlayer()
+                .fullScreenCover(isPresented: $pm.showLargePlayer) {
+                    showLargePlayer()
+                }
+        }
     }
     
     private func showLargePlayer() -> some View {
@@ -45,7 +43,6 @@ struct PlayerView: View {
                 ProgressView()
             }
             .aspectRatio(contentMode: .fit)
-//            .clipShape(Circle())
             .frame(width: Helper.screenWidth-100, height: Helper.screenWidth-100, alignment: .center)
             
             Spacer()
@@ -64,7 +61,7 @@ struct PlayerView: View {
             .padding(.horizontal,20)
             Spacer()
             VStack{
-                Slider(value: $playerSeekTime, in: 0...240)
+                Slider(value: $pm.playerSeekTime, in: 0...240)
                 HStack{
                     Text("1:00")
                         .font(.caption)
@@ -113,27 +110,22 @@ struct PlayerView: View {
             Color.black.opacity(0.8)
                 .cornerRadius(5)
             HStack(alignment: .center) {
-                Image("albumCover")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: Helper.screenWidth/6, height: Helper.screenWidth/6, alignment: .center)
-                    .cornerRadius(5)
-                    .padding(.horizontal,5)
-                // TODO: When player running from the data, u should change Image to AsyncImage or SDWebImage for cache.. its not decided yet..
-                //                AsyncImage(url: URL(string: trackImageUrlString)) { image in
-                //                    image.resizable()
-                //                } placeholder: {
-                //                    ProgressView()
-                //                }
-                //                .aspectRatio(contentMode: .fit)
-                //                .cornerRadius(5)
-                //                .frame(width: Helper.screenWidth/5.3)
-                //                .padding(.top,10)
+                
+                AsyncImage(url: URL(string: pm.currentTrack?.album?.images.first?.url ?? (pm.currentTrack?.images?.first?.url ?? "https://media.istockphoto.com/photos/istanbul-the-capital-of-turkey-picture-id507551802?b=1&k=20&m=507551802&s=170667a&w=0&h=kpYl1YzBS8s9roRG18hQVJ0I3vumxW5I659uKgeYNsI="))) { image in
+                    image.resizable()
+                } placeholder: {
+                    ProgressView()
+                }
+                .aspectRatio(contentMode: .fill)
+                .frame(width: Helper.screenWidth/6, height: Helper.screenWidth/6, alignment: .center)
+                .cornerRadius(5)
+                .padding(.horizontal,5)
+                
                 VStack(alignment: .leading, spacing: 7) {
-                    Text("Daglar Daglar")
+                    Text(pm.currentTrack?.name ?? "")
                         .font(.title3)
                         .bold()
-                    Text("Baris Manco")
+                    Text(Helper.getArtistsName(artists: pm.currentTrack?.artists ?? []))
                         .font(.subheadline)
                 }
                 .padding(.vertical,10)
