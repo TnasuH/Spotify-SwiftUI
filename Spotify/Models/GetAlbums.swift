@@ -20,7 +20,7 @@ public struct GetAlbums: Codable {
     public let artists: [Artist]
     public let availableMarkets: [String]
     public let copyrights: [Copyright]
-    public let externalids: GetAlbumsExternalids
+    public let externalids: Externalids?
     public let externalUrls: ExternalUrls
     public let genres: [JSONAny]
     public let href: String
@@ -28,11 +28,11 @@ public struct GetAlbums: Codable {
     public let images: [ImageModel]
     public let label: String
     public let name: String
-    public let popularity: Int
+    public let popularity: Int?
     public let releaseDate: String
     public let releaseDatePrecision: String
     public let totalTracks: Int
-    public let tracks: GetAlbumsTracks
+    public var tracks: Tracks
     public let type: AlbumTypeEnum
     public let uri: String
 
@@ -58,7 +58,7 @@ public struct GetAlbums: Codable {
         case uri = "uri"
     }
 
-    public init(albumType: AlbumTypeEnum, artists: [Artist], availableMarkets: [String], copyrights: [Copyright], externalids: GetAlbumsExternalids, externalUrls: ExternalUrls, genres: [JSONAny], href: String, id: String, images: [ImageModel], label: String, name: String, popularity: Int, releaseDate: String, releaseDatePrecision: String, totalTracks: Int, tracks: GetAlbumsTracks, type: AlbumTypeEnum, uri: String) {
+    public init(albumType: AlbumTypeEnum, artists: [Artist], availableMarkets: [String], copyrights: [Copyright], externalids: Externalids?, externalUrls: ExternalUrls, genres: [JSONAny], href: String, id: String, images: [ImageModel], label: String, name: String, popularity: Int?, releaseDate: String, releaseDatePrecision: String, totalTracks: Int, tracks: Tracks, type: AlbumTypeEnum, uri: String) {
         self.albumType = albumType
         self.artists = artists
         self.availableMarkets = availableMarkets

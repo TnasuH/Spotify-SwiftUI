@@ -30,4 +30,9 @@ struct Helper {
     static func getRandomColor() -> Color {
         return backgroundColors.randomElement()!
     }
+    
+    static func getArtistsName(artists: [Artist]) -> String {
+        let artistsnames = artists.compactMap { $0.name }
+        return artistsnames.joined(separator: ", ")
+    }
 }

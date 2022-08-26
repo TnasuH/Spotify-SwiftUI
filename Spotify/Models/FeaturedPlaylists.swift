@@ -17,7 +17,7 @@ import Foundation
 // MARK: - FeaturedPlaylists
 public struct FeaturedPlaylists: Codable {
     public let message: String
-    public let playlists: Playlists
+    public var playlists: Playlists
 
     enum CodingKeys: String, CodingKey {
         case message = "message"

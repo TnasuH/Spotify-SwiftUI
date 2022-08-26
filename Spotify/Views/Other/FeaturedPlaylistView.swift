@@ -9,8 +9,10 @@ import SwiftUI
 
 struct FeaturedPlaylistView: View {
     
-    @Binding var featuredPlaylist: [PlaylistsItem]
+//    @Binding var featuredPlaylist: [PlaylistsItem]
 
+    @ObservedObject var vm: AlbumViewModel
+    
     static let columnSize = Double((Helper.screenWidth)/2)
     
     let rows = [
@@ -23,9 +25,16 @@ struct FeaturedPlaylistView: View {
             featuredPlaylistTitle
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: rows, spacing: 40) {
-                    ForEach(featuredPlaylist, id:\.id) {
-                        featuredPlaylistCell(playlistItem: $0)
+                    ForEach(vm.featuredPlaylist.playlists.items, id:\.id) { plistitem in
+                        NavigationLink(destination: {
+                            PlaylistView(playlist: plistitem)
+                        }, label: {
+                            featuredPlaylistCell(plistItem: plistitem)
+                        })
                     }
+                    ListPlaceholderRowView(state: vm.featuredPlaylistState, loadMore: {
+                        vm.loadMoreFeaturedPlaylists()
+                    })
                 }
             }
         }
@@ -39,8 +48,11 @@ struct FeaturedPlaylistView: View {
             .padding(.horizontal)
     }
     
-    private func featuredPlaylistCell(playlistItem: PlaylistsItem) -> some View {
-        let playlistImageUrlString = playlistItem.images.first?.url ?? ""
+    private func featuredPlaylistCell(plistItem: PlaylistsItem) -> some View {
+        print("start")
+        print(plistItem)
+        print("end")
+        let playlistImageUrlString = plistItem.images.first?.url ?? ""
         return ZStack{
             VStack(alignment: .center, spacing: 0) {
                 AsyncImage(url: URL(string: playlistImageUrlString)) { image in
@@ -53,10 +65,10 @@ struct FeaturedPlaylistView: View {
                 .frame(width: Helper.screenWidth/3)
                 
                 VStack(alignment: .center, spacing: 0){
-                    Text("\(playlistItem.name)")
+                    Text("\(plistItem.name)")
                         .font(.title3)
                         .bold()
-                    Text(playlistItem.owner.name ?? "By Spotify")
+                    Text(plistItem.owner.name ?? "")
                         .font(.subheadline)
                 }
                 .padding(.top,5)
@@ -68,7 +80,7 @@ struct FeaturedPlaylistView: View {
 
 struct FeaturedPlaylistView_Previews: PreviewProvider {
     static var previews: some View {
-        FeaturedPlaylistView(featuredPlaylist: .constant([]))
+        FeaturedPlaylistView(vm: AlbumViewModel())
             .previewLayout(.sizeThatFits)
     }
 }

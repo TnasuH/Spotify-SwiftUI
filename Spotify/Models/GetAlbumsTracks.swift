@@ -17,7 +17,7 @@ import Foundation
 // MARK: - GetAlbumsTracks
 public struct GetAlbumsTracks: Codable {
     public let href: String
-    public let items: [FluffyItem]
+    public var items: [Track]
     public let limit: Int
     public let next: JSONNull?
     public let offset: Int
@@ -34,7 +34,7 @@ public struct GetAlbumsTracks: Codable {
         case total = "total"
     }
 
-    public init(href: String, items: [FluffyItem], limit: Int, next: JSONNull?, offset: Int, previous: JSONNull?, total: Int) {
+    public init(href: String, items: [Track], limit: Int, next: JSONNull?, offset: Int, previous: JSONNull?, total: Int) {
         self.href = href
         self.items = items
         self.limit = limit

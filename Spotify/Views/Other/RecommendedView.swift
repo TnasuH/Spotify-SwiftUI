@@ -9,14 +9,14 @@ import SwiftUI
 
 struct RecommendedView: View {
     
-    @Binding var recommendedTracks: [Track]
+    @ObservedObject var vm: AlbumViewModel
     
     var body: some View {
         VStack(alignment: .leading){
             recommendedTrackTitle
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyVStack {
-                    ForEach(recommendedTracks, id:\.id) {
+                    ForEach(vm.recommendations.tracks, id:\.id) {
                         recommendedTrackCell(track: $0)
                     }
                 }
@@ -66,6 +66,6 @@ struct RecommendedView: View {
 
 struct RecommendedView_Previews: PreviewProvider {
     static var previews: some View {
-        RecommendedView(recommendedTracks: .constant([]))
+        RecommendedView(vm: AlbumViewModel())
     }
 }

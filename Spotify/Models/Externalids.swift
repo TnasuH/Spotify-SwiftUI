@@ -7,13 +7,16 @@ import Foundation
 
 // MARK: - Externalids
 public struct Externalids: Codable {
-    public let isrc: String
+    public let isrc: String?
+    public let upc: String?
 
     enum CodingKeys: String, CodingKey {
         case isrc
+        case upc
     }
 
-    public init(isrc: String) {
+    public init(isrc: String?, upc: String?) {
         self.isrc = isrc
+        self.upc = upc
     }
 }

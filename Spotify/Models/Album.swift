@@ -29,7 +29,8 @@ public struct Album: Codable {
     public let totalTracks: Int
     public let type: AlbumTypeEnum?
     public let uri: String
-
+    public var tracks: Tracks?
+    
     enum CodingKeys: String, CodingKey {
         case albumType = "album_type"
         case artists = "artists"
@@ -44,9 +45,10 @@ public struct Album: Codable {
         case totalTracks = "total_tracks"
         case type = "type"
         case uri = "uri"
+        case tracks = "tracks"
     }
 
-    public init(albumType: String, artists: [Artist], availableMarkets: [String], externalUrls: ExternalUrls, href: String, id: String, images: [ImageModel], name: String, releaseDate: String, releaseDatePrecision: String, totalTracks: Int, type: AlbumTypeEnum?, uri: String) {
+    public init(albumType: String, artists: [Artist], availableMarkets: [String], externalUrls: ExternalUrls, href: String, id: String, images: [ImageModel], name: String, releaseDate: String, releaseDatePrecision: String, totalTracks: Int, type: AlbumTypeEnum?, uri: String, tracks: Tracks?) {
         self.albumType = albumType
         self.artists = artists
         self.availableMarkets = availableMarkets
@@ -60,5 +62,6 @@ public struct Album: Codable {
         self.totalTracks = totalTracks
         self.type = type
         self.uri = uri
+        self.tracks = tracks
     }
 }

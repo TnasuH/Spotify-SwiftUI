@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NewReleasedAlbumView: View {
     
-    @Binding var newAlbumList: [Album]
+    @ObservedObject var vm: AlbumViewModel
     
     static let columnSize = Double((Helper.screenWidth - 80) / 2.5)
     
@@ -24,9 +24,14 @@ struct NewReleasedAlbumView: View {
             newReleasedAlbumTitle
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: rows) {
-                    ForEach(newAlbumList, id: \.self.id) {
-                        newReleasedAlbumCell(album: $0)
+                    ForEach(vm.newReleasesAlbum.items, id: \.self.id) { album in
+                        NavigationLink(destination: AlbumView(album: album)) {
+                            newReleasedAlbumCell(album: album)
+                        }
                     }
+                    ListPlaceholderRowView(state: vm.newReleasesState, loadMore: {
+                        vm.loadMoreNewReleases()
+                    })
                 }
             }
         }
@@ -71,7 +76,7 @@ struct NewReleasedAlbumView: View {
 
 struct NewReleasedAlbumView_Previews: PreviewProvider {
     static var previews: some View {
-        NewReleasedAlbumView(newAlbumList: .constant([]))
+        NewReleasedAlbumView(vm: AlbumViewModel())
             .previewLayout(.sizeThatFits)
     }
 }

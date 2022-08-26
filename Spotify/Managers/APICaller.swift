@@ -48,7 +48,12 @@ final class APICaller {
                     completion(.failure(APIError.failedToGetData))
                     return
                 }
+                
                 do {
+                    //HOUSTON
+                    //let jsonData = try JSONSerialization.jsonObject(with: data)
+                    //print(jsonData)
+                    
                     let result = try JSONDecoder().decode(GetAlbums.self, from: data)
                     completion(.success(result))
                 } catch {
@@ -248,8 +253,8 @@ final class APICaller {
     
     // MARK: - Browse API
     
-    public func getNewReleases(completion: @escaping (Result<NewReleases, Error>) -> Void) {
-        createRequest(with: URL(string: Constants.baseAPIURL + "/browse/new-releases?limit=50"), type: .GET) { request in
+    public func getNewReleases(offset: Int, limit: Int,completion: @escaping (Result<NewReleases, Error>) -> Void) {
+        createRequest(with: URL(string: Constants.baseAPIURL + "/browse/new-releases?limit=\(limit)&offset=\(offset)"), type: .GET) { request in
             let task = URLSession.shared.dataTask(with: request) { data, urlResponse, error in
                 guard let data = data, error == nil else {
                     completion(.failure(APIError.failedToGetData))
@@ -267,14 +272,18 @@ final class APICaller {
         }
     }
     
-    public func getAllFeaturedPlaylists(completion: @escaping (Result<FeaturedPlaylists, Error>) -> Void) {
-        createRequest(with: URL(string: Constants.baseAPIURL + "/browse/featured-playlists?limit=20"), type: .GET) { baseRequest in
+    public func getAllFeaturedPlaylists(limit: Int, offset: Int, completion: @escaping (Result<FeaturedPlaylists, Error>) -> Void) {
+        createRequest(with: URL(string: Constants.baseAPIURL + "/browse/featured-playlists?limit=\(limit)&offset=\(offset)"), type: .GET) { baseRequest in
             let task = URLSession.shared.dataTask(with: baseRequest) { data, urlResponse, error in
                 guard let data = data, error == nil else {
                     completion(.failure(APIError.failedToGetData))
                     return
                 }
                 do {
+                    let jsonData = try JSONSerialization.jsonObject(with: data)
+                    if let JSONString = String(data: data, encoding: String.Encoding.utf8) {
+                       print(JSONString)
+                    }
                     let result = try JSONDecoder().decode(FeaturedPlaylists.self, from: data)
                     completion(.success(result))
                 }
@@ -308,7 +317,7 @@ final class APICaller {
     
     public func getRecommendations(genres: Set<String>, completion: @escaping (Result<Recommendations, Error>) -> Void) {
         let seeds = genres.joined(separator: ",")
-        createRequest(with: URL(string: Constants.baseAPIURL + "/recommendations?limit=10&seed_genres=\(seeds)"),
+        createRequest(with: URL(string: Constants.baseAPIURL + "/recommendations?limit=40&seed_genres=\(seeds)"),
                       type: .GET) { request in
             let task = URLSession.shared.dataTask(with: request) { data, urlResponse, error in
                 guard let data = data, error == nil else {
@@ -316,6 +325,9 @@ final class APICaller {
                     return
                 }
                 do {
+                    let jsonData = try JSONSerialization.jsonObject(with: data)
+                    print(jsonData)
+                    
                     let result = try JSONDecoder().decode(Recommendations.self, from: data)
                     completion(.success(result))
                 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @StateObject var vm = AlbumViewModel()
+    @ObservedObject var vm = AlbumViewModel()
     
     var body: some View {
         NavigationView {
@@ -31,12 +31,14 @@ struct HomeView: View {
         ScrollView
         {
             VStack{
-                NewReleasedAlbumView(newAlbumList: $vm.newReleases)
-                FeaturedPlaylistView(featuredPlaylist: $vm.featuredPlaylist)
-                RecommendedView(recommendedTracks: $vm.recommendations)
+                NewReleasedAlbumView(vm: vm)
+                FeaturedPlaylistView(vm: vm)
+                RecommendedView(vm: vm)
             }
         }
     }
+    
+    
 }
 
 struct HomeView_Previews: PreviewProvider {
