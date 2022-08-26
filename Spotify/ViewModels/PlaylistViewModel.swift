@@ -13,8 +13,15 @@ class PlaylistViewModel: ObservableObject {
     @Published var detail: GetPlaylists?
     @Published var time: String = ""
     @Published var playlistState: FetchState = .good
-   
     @Published var durationms: Int?
+    
+    //CategoryPlaylist
+    @Published var categoryPlaylists: Playlists?
+    var categoryPlaylistId: String?
+    
+    init(categoryPlaylistId: String) {
+        self.categoryPlaylistId = categoryPlaylistId
+    }
     
     var durationToString: String {
         get {
@@ -42,6 +49,46 @@ class PlaylistViewModel: ObservableObject {
     
     public func clear() {
         
+    }
+    
+    public func getCategoryPlaylist() {
+        guard playlistState == .good else { return }
+        
+        self.playlistState = .isLoading
+        
+        apiCaller.getCategoryPlaylist(categoryId: self.categoryPlaylistId!, offset: 0, limit: 20) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let model):
+                    self?.categoryPlaylists = model
+                    self?.playlistState = .good
+                    
+                case .failure(let error):
+                    self?.playlistState = .error(error.localizedDescription)
+                }
+            }
+        }
+    }
+    
+    public func getCategoryPlaylistMore() {
+        guard playlistState == .good else { return }
+        self.playlistState = .isLoading
+        
+        apiCaller.getCategoryPlaylist(categoryId: self.categoryPlaylistId!, offset: self.categoryPlaylists?.items.count ?? 0, limit: self.categoryPlaylists?.limit ?? 20) {
+            [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let result):
+                    
+                    self?.categoryPlaylists?.items.append(contentsOf: result.items)
+                    let resultTotal = self?.categoryPlaylists?.items.count ?? 0
+                    self?.playlistState = (resultTotal < (result.total )) ? .good : .loadedAll
+                    
+                case .failure(let err):
+                    self?.playlistState = .error(err.localizedDescription)
+                }
+            }
+        }
     }
     
     public func getPlaylist(id: String = "37i9dQZF1DXaE9T4Nls8eC") {

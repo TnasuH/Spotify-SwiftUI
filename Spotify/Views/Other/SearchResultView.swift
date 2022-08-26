@@ -37,38 +37,41 @@ struct SearchResultView: View {
                 
                 LazyVGrid(columns: columns, spacing: 10) {
                     ForEach($bindedVm.categories, id: \.self.id) { $cat in
-                        ZStack(alignment: .topLeading) {
-                            Helper.getRandomColor()
-                            
-                            ZStack(alignment: .topLeading){
-                                
-                                ZStack{
-                                    AsyncImage(url: URL(string:cat.icons.first?.url ?? "")){ image in
-                                        image.resizable()
-                                    } placeholder: {
-                                        ProgressView()
-                                    }
-                                    .aspectRatio(contentMode: .fit)
-                                    .cornerRadius(5)
-                                    .rotationEffect(.degrees(22))
-                                    .frame(width: 80, height: 80, alignment: .center)
-                                    .padding(.top,25)
-                                    .padding(.leading,(Helper.screenWidth / 2 ) - 60)
-                                    //                                        .background(.yellow)
-                                }
-                                .frame(width: (Helper.screenWidth / 2 ) - 5, height: 100, alignment: .center)
+                        
+                        NavigationLink(destination: CategoryPlaylistView(category: cat, vm: PlaylistViewModel(categoryPlaylistId: cat.id))) {
+                            ZStack(alignment: .topLeading) {
+                                Helper.getRandomColor()
                                 
                                 ZStack(alignment: .topLeading){
-                                    Text(cat.name)
-                                        .multilineTextAlignment(.leading)
-                                        .font(.title3.weight(.bold))
-                                        .padding(.top,10)
-                                        .padding(.leading,10)
+                                    
+                                    ZStack{
+                                        AsyncImage(url: URL(string:cat.icons.first?.url ?? "")){ image in
+                                            image.resizable()
+                                        } placeholder: {
+                                            ProgressView()
+                                        }
+                                        .aspectRatio(contentMode: .fit)
+                                        .cornerRadius(5)
+                                        .rotationEffect(.degrees(22))
+                                        .frame(width: 80, height: 80, alignment: .center)
+                                        .padding(.top,25)
+                                        .padding(.leading,(Helper.screenWidth / 2 ) - 60)
+                                        //                                        .background(.yellow)
+                                    }
+                                    .frame(width: (Helper.screenWidth / 2 ) - 5, height: 100, alignment: .center)
+                                    
+                                    ZStack(alignment: .topLeading){
+                                        Text(cat.name)
+                                            .multilineTextAlignment(.leading)
+                                            .font(.title3.weight(.bold))
+                                            .padding(.top,10)
+                                            .padding(.leading,10)
+                                    }
+                                    .frame(width: (Helper.screenWidth / 2 ) - 5, height: 100, alignment: .topLeading)
                                 }
-                                .frame(width: (Helper.screenWidth / 2 ) - 5, height: 100, alignment: .topLeading)
-                            }
-                        }.frame(height: 90, alignment: .center)
-                            .cornerRadius(5)
+                            }.foregroundColor(.white).frame(height: 90, alignment: .center)
+                                .cornerRadius(5)
+                        }
                     }
                 }
             }
