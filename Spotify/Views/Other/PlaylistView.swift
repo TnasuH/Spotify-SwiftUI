@@ -30,17 +30,15 @@ struct PlaylistView: View {
                 .opacity(0.7)
             ScrollView {
                 VStack(alignment: .center) {
-                    
                     coverHeadView
                         .padding(0)
                         .padding(.top,20)
                         .listRowSeparator(.hidden)
-                    
                         if let items = vm.detail?.tracks.items, let tracks = items.compactMap {$0.track} {
-                           
                                 TrackListView(tracks: tracks)
-                            
                         }
+                    Color.clear
+                        .frame(width: 20, height: 150, alignment: .center)
                     
                     Spacer()
                 }
