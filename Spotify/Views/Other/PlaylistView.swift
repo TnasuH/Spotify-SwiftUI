@@ -14,11 +14,10 @@ struct PlaylistView: View {
     var gradient: LinearGradient = LinearGradient(colors: [Helper.getRandomColor(), Helper.getRandomColor()],
                                                   startPoint: .top, endPoint: .bottom)
     
-    @ObservedObject var vm:PlaylistViewModel
+    @StateObject var vm:PlaylistViewModel = PlaylistViewModel()
     
     init(playlist: PlaylistsItem) {
         self.playlist = playlist
-        self.vm = PlaylistViewModel()
     }
     
     var body: some View {

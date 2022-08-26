@@ -57,6 +57,9 @@ struct CategoryPlaylistView: View {
             }
             vm.getCategoryPlaylist()
         }
+        .onDisappear(perform: {
+            self.showDetail = false
+        })
         .navigationTitle(category.name)
     }
     
