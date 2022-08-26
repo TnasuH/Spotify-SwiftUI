@@ -16,7 +16,7 @@ import Foundation
 
 // MARK: - Track
 public struct Track: Codable {
-    public let album: Album?
+    public var album: Album?
     public let artists: [Artist]?
     public let availableMarkets: [String]?
     public let discNumber: Int?

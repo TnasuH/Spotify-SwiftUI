@@ -34,7 +34,7 @@ struct AlbumView: View {
                         .padding(.top,20)
                         .listRowSeparator(.hidden)
                     if let album = vm.album, let tracks = album.tracks,let items = tracks.items {
-                        TrackListView(tracks: items, albumUrl: album.images.first?.url)
+                        TrackListView(tracks: items, album: self.album)
                         Color.clear ///For the empty space in view
                             .frame(width: 20, height: 150, alignment: .center)
                     }

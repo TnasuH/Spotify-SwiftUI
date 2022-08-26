@@ -13,6 +13,7 @@
 		2E79DEB028B76B9700B2952A /* PlaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E79DEAF28B76B9700B2952A /* PlaylistView.swift */; };
 		2E79DEB228B76C2C00B2952A /* CoverHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E79DEB128B76C2C00B2952A /* CoverHeadView.swift */; };
 		2E79DEB428B76E0B00B2952A /* TrackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E79DEB328B76E0B00B2952A /* TrackListView.swift */; };
+		2EA6598E28B8943000098211 /* PlayerManagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA6598D28B8943000098211 /* PlayerManagerViewModel.swift */; };
 		2ECA765528B4BCE8002A03C8 /* SpotifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA765428B4BCE8002A03C8 /* SpotifyApp.swift */; };
 		2ECA765728B4BCE8002A03C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA765628B4BCE8002A03C8 /* ContentView.swift */; };
 		2ECA765928B4BCEB002A03C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ECA765828B4BCEB002A03C8 /* Assets.xcassets */; };
@@ -98,6 +99,7 @@
 		2E79DEAF28B76B9700B2952A /* PlaylistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistView.swift; sourceTree = "<group>"; };
 		2E79DEB128B76C2C00B2952A /* CoverHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverHeadView.swift; sourceTree = "<group>"; };
 		2E79DEB328B76E0B00B2952A /* TrackListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListView.swift; sourceTree = "<group>"; };
+		2EA6598D28B8943000098211 /* PlayerManagerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerManagerViewModel.swift; sourceTree = "<group>"; };
 		2ECA765128B4BCE8002A03C8 /* Spotify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ECA765428B4BCE8002A03C8 /* SpotifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyApp.swift; sourceTree = "<group>"; };
 		2ECA765628B4BCE8002A03C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				2ECA76F828B5D357002A03C8 /* SearchViewModel.swift */,
 				2E79DEAB28B752FF00B2952A /* AlbumDetailsViewModel.swift */,
 				2E79DEAD28B76A3100B2952A /* PlaylistViewModel.swift */,
+				2EA6598D28B8943000098211 /* PlayerManagerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				2ECA76BB28B4BF1A002A03C8 /* Owner.swift in Sources */,
 				2ECA76C128B4BF1A002A03C8 /* Albums.swift in Sources */,
 				2ECA76D228B5522D002A03C8 /* DateExtensions.swift in Sources */,
+				2EA6598E28B8943000098211 /* PlayerManagerViewModel.swift in Sources */,
 				2ECA769928B4BF1A002A03C8 /* GetAlbumsTracks.swift in Sources */,
 				2ECA76A928B4BF1A002A03C8 /* Tracks.swift in Sources */,
 				2ECA76A728B4BF1A002A03C8 /* Artists.swift in Sources */,

@@ -9,13 +9,15 @@ import SwiftUI
 
 struct PlayerView: View {
     
-    @State var playerIsFullScreen: Bool = false
-    @State var playing: Bool = true
+    @EnvironmentObject var pm: PlayerManagerViewModel
+    
+//    @State var playerIsFullScreen: Bool = false
+//    @State var playing: Bool = true
     @State var playerSeekTime: Double = 60
     
     var body: some View {
         showMiniPlayer()
-            .fullScreenCover(isPresented: $playerIsFullScreen) {
+            .fullScreenCover(isPresented: $pm.showLargePlayer) {
                 showLargePlayer()
             }
     }
@@ -23,28 +25,36 @@ struct PlayerView: View {
     private func showLargePlayer() -> some View {
         VStack (alignment: .center) {
             HStack{
-                Button(action: {playerIsFullScreen.toggle()}){
+                Button(action: {
+                   pm.showLargePlayer.toggle()
+                }){
                     Image(systemName: "chevron.down")
                 }
                 Spacer()
-                Text("Album Name")
+                Text(pm.currentTrack?.album?.name ?? "Album Name")
                 Spacer()
                 Image(systemName: "square.and.arrow.up")
             }
             .padding()
             .foregroundColor(.primary)
             Spacer()
-            Image("albumCover")
-                .resizable()
-                .frame(width: Helper.screenWidth-100, height: Helper.screenWidth-100, alignment: .center)
-                .scaledToFit()
+            
+            AsyncImage(url: URL(string: pm.currentTrack?.album?.images.first?.url ?? (pm.currentTrack?.images?.first?.url ?? "https://media.istockphoto.com/photos/istanbul-the-capital-of-turkey-picture-id507551802?b=1&k=20&m=507551802&s=170667a&w=0&h=kpYl1YzBS8s9roRG18hQVJ0I3vumxW5I659uKgeYNsI="))) { image in
+                image.resizable()
+            } placeholder: {
+                ProgressView()
+            }
+            .aspectRatio(contentMode: .fit)
+//            .clipShape(Circle())
+            .frame(width: Helper.screenWidth-100, height: Helper.screenWidth-100, alignment: .center)
+            
             Spacer()
             HStack (alignment: .center) {
                 VStack(alignment: .leading){
-                    Text("Derdim Coktur Hangisine Yanayim")
+                    Text(pm.currentTrack?.name ?? "")
                         .lineLimit(1)
                         .font(.system(.title3).weight(.heavy))
-                    Text("Kubat")
+                    Text(Helper.getArtistsName(artists: pm.currentTrack?.artists ?? []))
                         .font(.system(.subheadline).weight(.regular))
                 }
                 Spacer()
@@ -76,8 +86,8 @@ struct PlayerView: View {
                     Image(systemName: "backward.end.fill")
                         .font(.system(size: 30, weight: .medium, design: .default))
                 }
-                Button(action: {playing.toggle()}){
-                    Image(systemName: playing ? "pause.circle.fill" : "play.circle.fill")
+                Button(action: {pm.isPlaying.toggle()}){
+                    Image(systemName: pm.isPlaying ? "pause.circle.fill" : "play.circle.fill")
                         .font(.system(size: 48, weight: .medium, design: .default))
                 }
                 Button(action: {}){
@@ -131,9 +141,9 @@ struct PlayerView: View {
                 Spacer()
                 Button(action: {
                     // TODO: player play pause flows
-                    playing.toggle()
+                    pm.isPlaying.toggle()
                 }) {
-                    Image(systemName: playing ? "pause.fill" : "play.fill") // TODO: play button icon will be change for the play status
+                    Image(systemName: pm.isPlaying ? "pause.fill" : "play.fill") // TODO: play button icon will be change for the play status
                         .font(.title)
                         .foregroundColor(.white)
                 }
@@ -144,7 +154,7 @@ struct PlayerView: View {
         .padding(.horizontal,5)
         .frame(height: 80, alignment: .center)
         .onTapGesture {
-            playerIsFullScreen.toggle()
+            pm.showLargePlayer.toggle()
         }
         .padding(.bottom,50)
     }

@@ -11,13 +11,14 @@ import WebKit
 struct ContentView: View {
     
     @StateObject var authManager: AuthManager = AuthManager.shared
+    @StateObject var playerVM: PlayerManagerViewModel = PlayerManagerViewModel()
     
     var body: some View {
         if authManager.isSignedIn {
             ZStack(alignment: .bottom){
                 TabBarView()
                 PlayerView()
-            }
+            }.environmentObject(playerVM)
         }
         if !authManager.isSignedIn {
             //Show Login Page

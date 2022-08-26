@@ -9,13 +9,26 @@ import SwiftUI
 
 struct TrackListView: View {
     
+    @EnvironmentObject var pm: PlayerManagerViewModel
+    
     var tracks: [Track]
-    var albumUrl: String?
+    var album: Album?
+    
     var body: some View {
         ForEach(tracks, id: \.id) {
             item in
             LazyVStack {
                 trackRow(track: item)
+                    .onTapGesture {
+                        var item = item
+                        if(item.album == nil) {
+                            item.album = self.album
+                        }
+                        pm.isPlaying = false
+                        pm.currentTrack = item
+                        pm.isPlaying = true
+                        pm.showLargePlayer = true
+                    }
             }
         }
     }
@@ -23,7 +36,7 @@ struct TrackListView: View {
     private func trackRow(track: Track) -> some View {
         
         return HStack (alignment: .center) {
-            AsyncImage(url: URL(string: track.album?.images.first?.url ?? (albumUrl ?? ""))) { image in
+            AsyncImage(url: URL(string: track.album?.images.first?.url ?? (album?.images.first?.url ?? ""))) { image in
                 image.resizable()
                 
             } placeholder: {
