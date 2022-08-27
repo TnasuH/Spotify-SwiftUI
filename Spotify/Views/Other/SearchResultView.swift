@@ -123,7 +123,7 @@ struct SearchResultView: View {
             case .track:
                 List {
                     ForEach(bindedVm.tracks, id: \.id) { track in
-                        searchRowStyle1(imgUrlStr: track.album?.images.first?.url ?? "", title: track.name, secondTitle: "\(track.album?.name ?? "") - \(track.artists?.first?.name ?? "")", imgCornerRadius: 4)
+                        SearchTrackRowView(imgUrlStr: track.album?.images.first?.url ?? "", title: track.name, secondTitle: "\(track.album?.name ?? "") - \(track.artists?.first?.name ?? "")", imgCornerRadius: 4, track: track)
                     }
                     if bindedVm.tracks.count == 0 {
                         searchSomeThing
@@ -133,7 +133,10 @@ struct SearchResultView: View {
             case .playlist:
                 List {
                     ForEach(bindedVm.playlists, id: \.id) { playlist in
-                        searchRowStyle1(imgUrlStr: playlist.images.first?.url ?? "", title: playlist.name, secondTitle: "By \(playlist.owner.displayName ?? "")", subTitle: "\(playlist.tracks.total) Tracks", imgCornerRadius: 4)
+                        NavigationLink(destination: PlaylistView(playlist: playlist)){
+                            searchRowStyle1(imgUrlStr: playlist.images.first?.url ?? "", title: playlist.name, secondTitle: "By \(playlist.owner.displayName ?? "")", subTitle: "\(playlist.tracks.total) Tracks", imgCornerRadius: 4)
+                        }
+
                     }
                     if bindedVm.playlists.count == 0 {
                         searchSomeThing
