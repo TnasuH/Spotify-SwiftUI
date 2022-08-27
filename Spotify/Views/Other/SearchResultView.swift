@@ -95,7 +95,10 @@ struct SearchResultView: View {
             case .artist:
                 List {
                     ForEach(bindedVm.artists, id: \.id) { artist in
-                        searchRowStyle1(imgUrlStr: artist.images?.first?.url ?? "", title: artist.name, secondTitle: "\(artist.followers?.total ?? 0) Followers")
+                        
+                        NavigationLink(destination: ArtistView(vm: ArtistViewModel(artist: artist))) {
+                            searchRowStyle1(imgUrlStr: artist.images?.first?.url ?? "", title: artist.name, secondTitle: "\(artist.followers?.total ?? 0) Followers")
+                        }
                     }
                     if bindedVm.artists.count == 0 {
                         searchSomeThing

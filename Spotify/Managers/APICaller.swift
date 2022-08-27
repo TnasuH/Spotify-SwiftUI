@@ -38,6 +38,37 @@ final class APICaller {
         case failedToGetData
     }
     
+    // MARK: - Artist
+    
+    public func getArtistAlbums(artistId: String,completion: @escaping (Result<Albums, Error>) -> Void) {
+        print(artistId)
+        let urlStr = Constants.baseAPIURL + "/artists/\(artistId)/albums"
+        print("request will prepare for: \(urlStr) ")
+        createRequest(with: URL(string: urlStr), type: .GET) { request in
+            let task = URLSession.shared.dataTask(with: request, completionHandler: { data, _, error in
+                guard let data = data, error == nil else {
+                    completion(.failure(APIError.failedToGetData))
+                    return
+                }
+                
+                do {
+//                    HELP FOR HOUSTON
+//                    let jsonData = try JSONSerialization.jsonObject(with: data)
+//                    if let JSONString = String(data: data, encoding: String.Encoding.utf8) {
+//                        print(JSONString)
+//                    }
+                    let result = try JSONDecoder().decode(Albums.self, from: data)
+                    completion(.success(result))
+                } catch {
+                    print(error)
+                    completion(.failure(error))
+                }
+            })
+            task.resume()
+        }
+    }
+    
+
     // MARK: - Albums
     
     public func getAlbumDetail(for albumId: String, completion: @escaping (Result<GetAlbums,Error>) -> Void) {
