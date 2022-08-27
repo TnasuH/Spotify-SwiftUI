@@ -111,7 +111,9 @@ struct SearchResultView: View {
             case .album:
                 List {
                     ForEach(bindedVm.albums, id: \.id) { album in
-                        searchRowStyle1(imgUrlStr: album.images.first?.url ?? "", title: album.name, secondTitle: album.artists.first?.name ?? "",subTitle: "\(album.totalTracks) Tracks")
+                        NavigationLink(destination: AlbumView(album: album)) {
+                            searchRowStyle1(imgUrlStr: album.images.first?.url ?? "", title: album.name, secondTitle: album.artists.first?.name ?? "",subTitle: "\(album.totalTracks) Tracks")
+                        }
                     }
                     if bindedVm.albums.count == 0 {
                         searchSomeThing
