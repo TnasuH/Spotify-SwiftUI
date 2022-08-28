@@ -30,7 +30,6 @@ struct TrackListView: View {
                 ZStack {
                     AsyncImage(url: URL(string: track.album?.images.first?.url ?? (album?.images.first?.url ?? ""))) { image in
                         image.resizable()
-                        
                     } placeholder: {
                         ProgressView()
                     }
@@ -51,8 +50,8 @@ struct TrackListView: View {
                         .font(.subheadline)
                         .lineLimit(1)
                 }.foregroundColor(isNotPreview ?
-                                  Color.primary
-                    .opacity(0.5) : Color.primary)
+                                  Color.white
+                    .opacity(0.5) : Color.white)
             }
             .onTapGesture {
                 print("row clicked")
@@ -90,7 +89,7 @@ struct TrackListView: View {
                 }
             } label: {
                 Image(systemName: "ellipsis")
-                    .foregroundColor(isNotPreview ? .primary.opacity(0.5) : .primary)
+                    .foregroundColor(isNotPreview ? .white.opacity(0.5) : .white)
                     .padding()
             }
         }

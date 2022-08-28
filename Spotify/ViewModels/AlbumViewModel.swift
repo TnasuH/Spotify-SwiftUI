@@ -21,12 +21,38 @@ class AlbumViewModel: ObservableObject {
     @Published var featuredPlaylist: FeaturedPlaylists = FeaturedPlaylists(message: "", playlists: Playlists(href: "", items: [], limit: 20, next: nil, offset: 0, previous: nil, total: 0))
 
     
+    //currentLoginUser
+    @Published var currUserAlbumReqState: FetchState = .good
+    @Published var currUserAlbums: [Album] = []
+    
     var apiCaller: APICaller = APICaller.shared
     
     init() {
         getNewReleases()
         getFeaturedPlaylists()
         getRecommendations()
+    }
+    
+    init(isLoginUser: Bool) {
+        getCurrentUserAlbums()
+    }
+    
+    public func getCurrentUserAlbums() {
+        guard currUserAlbumReqState == .good else { return }
+        
+        self.currUserAlbumReqState = .isLoading
+        
+        apiCaller.getCurrentUserAlbums { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let model):
+                    self?.currUserAlbums = model
+                    self?.currUserAlbumReqState = .good
+                case .failure(let err):
+                    self?.currUserAlbumReqState = .error(err.localizedDescription)
+                }
+            }
+        }
     }
     
     private func getRecommendations() {

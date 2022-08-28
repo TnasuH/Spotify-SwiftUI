@@ -36,7 +36,7 @@ struct FeaturedPlaylistView: View {
                         vm.loadMoreFeaturedPlaylists()
                     })
                 }
-            }
+            }.foregroundColor(.primary)
         }
     }
     

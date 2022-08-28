@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E6DB28E28BB6F5900BF204F /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DB28D28BB6F5900BF204F /* LibraryView.swift */; };
 		2E79DEAA28B7347500B2952A /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E79DEA928B7347500B2952A /* AlbumView.swift */; };
 		2E79DEAC28B752FF00B2952A /* AlbumDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E79DEAB28B752FF00B2952A /* AlbumDetailsViewModel.swift */; };
 		2E79DEAE28B76A3100B2952A /* PlaylistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E79DEAD28B76A3100B2952A /* PlaylistViewModel.swift */; };
@@ -97,6 +98,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E6DB28D28BB6F5900BF204F /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		2E79DEA928B7347500B2952A /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
 		2E79DEAB28B752FF00B2952A /* AlbumDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsViewModel.swift; sourceTree = "<group>"; };
 		2E79DEAD28B76A3100B2952A /* PlaylistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistViewModel.swift; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 				2ECA76DD28B55D9E002A03C8 /* WelcomeView.swift */,
 				2ECA76D928B55B98002A03C8 /* TabBarView.swift */,
 				2ECA76FA28B5D48F002A03C8 /* SearchView.swift */,
+				2E6DB28D28BB6F5900BF204F /* LibraryView.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				2ECA76C428B4BF1A002A03C8 /* Album.swift in Sources */,
 				2ECA76BD28B4BF1A002A03C8 /* GenreSeeds.swift in Sources */,
 				2ECA76A428B4BF1A002A03C8 /* Seed.swift in Sources */,
+				2E6DB28E28BB6F5900BF204F /* LibraryView.swift in Sources */,
 				2ECA76A828B4BF1A002A03C8 /* TrackType.swift in Sources */,
 				2EC5634C28BA21BF00BC5203 /* ArtistViewModel.swift in Sources */,
 				2ECA76C228B4BF1A002A03C8 /* ImageModel.swift in Sources */,
