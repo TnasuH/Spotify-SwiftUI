@@ -151,8 +151,8 @@ final class APICaller {
     }
     
     
-    public func getCurrentUserPlaylists(completion: @escaping (Result<Playlists, Error>) -> Void) {
-        createRequest(with: URL(string: Constants.baseAPIURL + "/me/playlists?limit=50"), type: .GET) { request in
+    public func getCurrentUserPlaylists(limit: Int, offset: Int, completion: @escaping (Result<Playlists, Error>) -> Void) {
+        createRequest(with: URL(string: Constants.baseAPIURL + "/me/playlists?limit=\(limit)&offset=\(offset)"), type: .GET) { request in
             let task = URLSession.shared.dataTask(with: request) { data, _, error in
                 guard let data = data, error == nil else {
                     completion(.failure(APIError.failedToGetData))

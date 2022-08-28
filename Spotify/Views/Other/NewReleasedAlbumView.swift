@@ -71,7 +71,9 @@ struct NewReleasedAlbumView: View {
             .frame(width: Helper.screenWidth - 80, alignment: .leading)
         }
         .frame(height: (Helper.screenWidth - 80)/2.5, alignment: .center)
+        .foregroundColor(.primary)
     }
+    
 }
 
 struct NewReleasedAlbumView_Previews: PreviewProvider {
